@@ -1,0 +1,73 @@
+{
+ "Programming": [
+  {
+    "name": "Python",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+    "gradient": "linear-gradient(to right, #306998, #E0FF18FF)",
+    "color": "#ffffff"
+  },
+  {
+    "name": "Flask",
+    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgDKn0eVZWNsOG-Uw38JZhKUa7WeGokBW65m7Hrxlo8kK8bvUNQ86tuxSbwSFaSLoa7-0&usqp=CAU",
+    "gradient": "linear-gradient(to right, #000000, #444444)",
+    "color": "#ffffff"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    "gradient": "linear-gradient(to right, #f0db4f, #FEFCF1FF)",
+    "color": "#000000"
+  },
+  {
+    "name": "Angular",
+    "icon": "https://angular.io/assets/images/logos/angular/angular.svg",
+    "gradient": "linear-gradient(to right, #dd0031, #c3002f)",
+    "color": "#ffffff"
+  }
+],
+
+  "Design": [
+  
+    {
+      "name": "Adobe_Photoshop",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/1200px-Adobe_Photoshop_CC_icon.svg.png",
+         "bgcolor": "#0016DDFF",
+      "color": "#ffffff"
+
+    },
+
+      {
+      "name": "Adobe Illustrator",
+      "icon": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQgRuuB4p3GAc2Z9_zO7mEw7Ko_j6xaPqBxA&s",
+      "bgcolor": "#7E0000FF",
+      "color": "#ffffff"
+    },
+        {
+      "name": "Canva",
+      "icon": " https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Canva_Logo.svg/1920px-Canva_Logo.svg.png",
+     "gradient": "linear-gradient(to right, #00EEFFFF, #4193FFFF)",
+      "color": "#ffffff"
+    }
+  ],
+"Office": [
+  {
+    "name": "Excel",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/640px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png",
+    "gradient": "linear-gradient(to right, #00EEFF, #4193FF)",
+    "color": "#ffffff"
+  },
+  {
+    "name": "Word",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/1200px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png",
+    "gradient": "linear-gradient(to right, #2B579A, #0078D7)",
+    "color": "#ffffff"
+  },
+  {
+    "name": "PowerPoint",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/800px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png",
+    "gradient": "linear-gradient(to right, #D24726, #FF7043)",
+    "color": "#ffffff"
+  }
+]
+
+}

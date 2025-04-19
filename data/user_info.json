@@ -1,0 +1,35 @@
+{
+  "name": "PUYVONG_HENG",
+  "title": "Web | Design",
+  "summary": "My top Skill Ctrl+C Ctrl+V",
+  "profile_image": "https://puyvongheng.github.io/KOY/img/Untitled%20design.jpg",
+  "personal_details":[
+      {
+    "name": "Puyvong Heng",
+    "nickname": "KOY",
+    "sex": "Male",
+    "dob": "01-07-2004",
+    "place_of_birth": "Sdei Leu Village, Koy Maeng Commune, Mongkol Borei District, Banteay Meanchey Province.",
+    "nationality": "Khmer",
+    "religion": "Buddha",
+    "marital_status": "Single",
+    "height": "1.66cm",
+    "health": "Good"
+  }
+
+  ],
+  "contacts": [
+  
+    {
+      "type": "github",
+      "icon": "fab fa-github",
+      "link": "https://github.com/yourusername",
+      "class": "btn-outline-dark",
+      "bgcolor": "linear-gradient(to right, #333, #555)",
+      "color": "#ffffff"
+    }
+
+  ]
+
+
+}

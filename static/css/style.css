@@ -1,0 +1,52 @@
+/* static/css/style.css */
+
+body {
+    padding-top: 56px;
+    /* Adjust based on navbar height */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    /* Make main content area grow to fill space */
+}
+
+footer {
+    flex-shrink: 0;
+    /* Prevent footer from shrinking */
+}
+
+/* Make badges slightly larger */
+.badge.fs-6 {
+    font-size: 0.9rem !important;
+    padding: 0.4em 0.6em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

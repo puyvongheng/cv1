@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user_info.name }} - CV{% endblock %}
+
+{% block content %}
+<style>
+  /* Global Styles */
+  .profile-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Typing Effect */
+  .typing-effect {
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #fff;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #fff; }
+  }
+
+  /* Section Titles */
+  h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Card Styles */
+  .card {
+    border: none;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    color: #2a5298;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text {
+    color: #444;
+  }
+
+  .badge {
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-outline-success {
+    border-color: #28a745;
+    color: #28a745;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
+  }
+
+  /* Section-Specific Styling */
+  #experience h2, #education h2, #projects h2, #skills h2 {
+    color: #2a5298;
+  }
+
+  #education, #experience, #skills, #projects {
+    margin-bottom: 4rem;
+  }
+
+  .skill-icon {
+    height: 25px;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+</style>
+
+<header class="p-5 mb-4 cool-header rounded-4 text-center">
+  <div class="container-fluid py-5">
+    {% if user_info.profile_image %}
+      <img src="{{ user_info.profile_image }}" alt="Profile Image" class="profile-image mb-3">
+    {% endif %}
+    <h1 class="display-5 fw-bold typing-effect">{{ user_info.name }}</h1>
+    <p class="fs-4 fst-italic">{{ user_info.title }}</p>
+    <p class="col-md-8 fs-5 mx-auto">{{ user_info.summary }}</p>
+
+    {% if user_info.contacts %}
+      <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+        {% for contact in user_info.contacts %}
+          <a href="{{ contact.link }}" target="_blank" class="btn btn-sm" style="background: {{ contact.bgcolor }}; color: {{ contact.color }};">
+            <i class="{{ contact.icon }}"></i> {{ contact.type.capitalize() }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+
+        {% if user_info.personal_details %}
+      <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+        {% for personal_details in user_info.personal_details %}
+          <a href="{{ personal_details.nickname }}" target="_blank" class="btn btn-sm" >
+          
+            {{ personal_details.height }}
+            
+          </a>
+
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</header>
+
+
+
+<div class="row g-4">
+  <div class="col-lg-8">
+
+    
+    <!-- Work Experience -->
+    <section id="experience">
+      <h2><i class="fas fa-briefcase me-2 text-primary"></i>Work Experience</h2>
+      {% for job in experience %}
+      <div class="card mb-3 rounded-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ job.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ job.company }} | {{ job.period }}</h6>
+          <p class="card-text">{{ job.description }}</p>
+        </div>
+      </div>
+      {% else %}
+      <p class="text-muted">No work experience listed.</p>
+      {% endfor %}
+    </section>
+
+
+    <!-- Education -->
+    <section id="education">
+      <h2><i class="fas fa-graduation-cap me-2 text-primary"></i>Education</h2>
+      {% for edu in education %}
+      <div class="card mb-3 rounded-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ edu.degree }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ edu.institution }} | {{ edu.period }}</h6>
+          {% if edu.details %}
+          <p class="card-text">{{ edu.details }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% else %}
+      <p class="text-muted">No education listed.</p>
+      {% endfor %}
+    </section>
+  </div>
+
+  <div class="col-lg-4">
+    <!-- Skills -->
+    <section id="skills">
+      <h2><i class="fas fa-cogs me-2"></i>Skills</h2>
+      <div class="card">
+        <div class="card-body">
+          {% if skills %}
+            {% for category, items in skills.items() %}
+            <h5 class="mt-2">{{ category }}</h5>
+            <div class="d-flex flex-wrap">
+              {% for skill in items %}
+              <div class="me-2 mb-2">
+                <img src="{{ skill.icon }}" alt="{{ skill.name }} icon" class="skill-icon">
+                <span class="badge" 
+                  style="background: {{ skill.gradient if skill.gradient else (skill.bgcolor if skill.bgcolor else '#007bff') }}; 
+                         color: {{ skill.color if skill.color else '#fff' }};">
+                  {{ skill.name }}
+                </span>
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          {% else %}
+          <p>No skills listed.</p>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2><i class="fas fa-project-diagram me-2 text-primary"></i>Highlighted Projects by Category</h2>
+      {% if projects %}
+      <div class="row g-4">
+        {% for project in projects %}
+        <div class="col-md-6">
+          <div class="card mb-3 h-100">
+            {% if project.cover %}
+            <img src="{{ project.cover }}" class="card-img-top" alt="{{ project.title }} cover" style="max-height: 200px; object-fit: cover;">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              {% if project.category %}
+              <a href="{{ url_for('view_category', category=project.category) }}" class="badge bg-secondary mb-2">
+                {{ project.category }}
+              </a><br>
+              {% endif %}
+              <p class="card-text">{{ project.description }}</p>
+              {% if project.category %}
+              <a href="{{ url_for('view_category', category=project.category) }}" class="btn btn-sm btn-outline-success">more</a><br>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>No projects listed.</p>
+      {% endif %}
+    </section>
+  </div>
+</div>
+{% endblock %}
