@@ -36,6 +36,17 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Run app.py
+    - name: Install ngrok
       run: |
-        python app.py
+        curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+        echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
+        sudo apt update && sudo apt install ngrok
+    
+    - name: Run Flask app with ngrok
+      run: |
+        pip install flask
+        nohup python app.py &
+        nohup ngrok http 5000 &
+        sleep 10
+        curl http://localhost:4040/api/tunnels
+
